@@ -23,8 +23,9 @@ def wikiExtract(word='test'):
 		pages = json.loads(str(request)['query']['pages'])
 		for page in pages:
 			return(pages[page]['extract'])
-	except:
-		return "No Wiktionary Extract Available"
+	except Exception as e:
+		print(e)
+		return "<p>No Wiktionary Extract Available</p>"
 
 @app.route('/')
 def randet():
