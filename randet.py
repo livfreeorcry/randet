@@ -11,7 +11,7 @@ etymonline = "https://www.etymonline.com/word/"
 
 # Wiktionary Extract Pull
 
-def extract(word='test'):
+def wikiExtract(word='test'):
 	try:
 		url= "https://en.wiktionary.org/w/api.php?action=query&prop=extracts&format=json&titles="
 		extBlob = request.urlopen(url+word)
@@ -29,7 +29,7 @@ def randet():
 		blob = request.urlopen("https://random-word-api.herokuapp.com/word").read()
 		word = json.loads(blob)[0]
 		et = ety.origins(word, recursive=True)
-		extract = extract(word)
+		extract = wikiExtract(word)
 		if len(et) > 0:
 			#return render_template("template.html", word=word, et=str(et), extract=extract)
 			return("<h2>" + word + ":</h2><p>" + str(et) + 
@@ -47,7 +47,7 @@ def test():
 		blob = request.urlopen("https://random-word-api.herokuapp.com/word").read()
 		word = json.loads(blob)[0]
 		et = ety.origins(word, recursive=True)
-		extract = extract(word)
+		extract = wikiExtract(word)
 		if len(et) > 0:
 			try:
 				return render_template("template.html", word=word, et=str(et), extract=extract)
