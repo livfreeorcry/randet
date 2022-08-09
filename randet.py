@@ -19,8 +19,8 @@ def randet():
 		et = ety.origins(word, recursive=True)
 		if len(et) > 0:
 			return("<h2>" + word + ":</h2><p>" + str(et) + 
-				"</p><p>Wiktionary: <a href=\""+wiktionary+"\">" + word + "</a>" +
-				"</p><p>Etymonline: <a href=\""+etymonline+"\">" + word + "</a>" )
+				"</p><p>Wiktionary: <a href=\"" + wiktionary + word + "\">" + word + "</a>" +
+				"</p><p>Etymonline: <a href=\"" + etymonline + word + "\">" + word + "</a>" )
 		else:
 			count += 1
 	return("<h3>Tried ten words, none had an etymology listed. Please try again.</h3")
