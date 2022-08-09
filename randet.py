@@ -36,7 +36,8 @@ def randet():
 		word = randWord()
 		et = ety.origins(word, recursive=True)
 		if len(et) > 0:
-			return render_template("template.html", word=word, et=str(et), extract="")
+			extract = wikiExtract(word, depth)
+			return render_template("template.html", word=word, et=str(et), extract=extract)
 		else:
 			count += 1
 	return(render_template( "template.html", 
@@ -47,7 +48,6 @@ def randet():
 
 @app.route('/<word>')
 def specificLookup(word):
-	depth = request.values.get('depth') if 'depth' in request.args else 10
 	et = ety.origins(word, recursive=True)
-	extract = wikiExtract(word, depth)
+	extract = wikiExtract(word)
 	return render_template("template.html", word=word, et=str(et), extract=extract)
