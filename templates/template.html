@@ -14,34 +14,26 @@
 </head>
 <body>
 	<div class="container">
-		::before
 		<div class="header clearfix">
-			::before
 			<nav>
 				<ul class="nav nav-pills pull-right">
-					::before
 					<li role="presentation" class="active"><a href="/">Rando</a></li>
-					::after
 				</ul>
 			</nav>
 			<h3 class="text-muted">Random Etymology</h3>
-			::after
 		</div>
 		<div class="jumbotron">
 			<h1>{{ word }}</h1>
 			<p class="lead">{{ et }}</p>
 		</div>
 		<div class="row marketing">
-			::before
 	        {{ extract|safe }}
 	        <p>...</p>
 	 		<p>Via <a href="https://en.wiktionary.org/wiki/{{ word }}">Wiktionary</a></p>
-	 		::after
 	 	</div>
 	 	<footer class="footer">
 	    <p><a href="https://twitter.com/livfreeorcry">@livfreeorcry</a></p>
 		</footer>
-		::after
  	</div>
 </body>
 </html>
