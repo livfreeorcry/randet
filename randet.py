@@ -43,14 +43,8 @@ def randet():
 		extract="")
 	)
 
-@app.route('/test')
-def test():
-	count = 0
-	while count < 10:
-		word = "test"
-		et = "Testing the wiktionary lookup."
-		if len(et) > 0:
-			return render_template("template.html", word=word, et=str(et), extract=wikiExtract(word))
-		else:
-			count += 1
-	return("Something Very Bad Happened Here.")
+@app.route('/<word>')
+def specificLookup():
+	et = ety.origins(word, recursive=True)
+	extract = wikiExtract(word)
+	return render_template("template.html", word=word, et=str(et), extract=extract)
