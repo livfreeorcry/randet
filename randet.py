@@ -47,7 +47,7 @@ def randet():
 
 @app.route('/<word>')
 def specificLookup(word):
-	depth = request.values.get('depth') if request.values.has_key('depth') else 10
+	depth = request.values.get('depth') if 'depth' in request.args else 10
 	et = ety.origins(word, recursive=True)
 	extract = wikiExtract(word, depth)
 	return render_template("template.html", word=word, et=str(et), extract=extract)
