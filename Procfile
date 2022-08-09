@@ -1,1 +1,1 @@
-web: gunicorn ety:app
+web: gunicorn randet:app
