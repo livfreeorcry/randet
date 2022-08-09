@@ -11,7 +11,7 @@ etymonline = "https://www.etymonline.com/word/"
 
 # Wiktionary Extract Pull
 
-def extract(word=test):
+def extract(word='test'):
 	try:
 		url= "https://en.wiktionary.org/w/api.php?action=query&prop=extracts&format=json&titles="
 		extBlob = request.urlopen(url+word)
