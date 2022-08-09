@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Random Etymology Lookup</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<div class="jumbotron">
+		<h2>{{ word }}</h2>
+		<p>{{ et }}</p>
+		<p>Wiktionary: <a href="https://en.wiktionary.org/wiki/{{ word }}">{{ word }}</a></p>
+		<p>Etymonline: <a href="https://www.etymonline.com/word/{{ word }}">{{ word }}</a></p>
+	</div>
+	<div class="row marketing">
+        <div class="col-lg-6">
+          {{ extract }}
+      </div>
+</body>
+</html>
