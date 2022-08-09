@@ -6,15 +6,27 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-	<div class="jumbotron">
-		<h2>{{ word }}</h2>
-		<p>{{ et }}</p>
-		<p>Wiktionary: <a href="https://en.wiktionary.org/wiki/{{ word }}">{{ word }}</a></p>
-		<p>Etymonline: <a href="https://www.etymonline.com/word/{{ word }}">{{ word }}</a></p>
-	</div>
-	<div class="row marketing">
-        <div class="col-lg-6">
-          {{ extract }}
-      </div>
+	<div class="container">
+		<div class="header clearfix">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+				<li role="presentation" class="active"><a href="javascript:window.location.reload(true)">Reroll</a></li>
+				</ul>
+			</nav>
+			<h3 class="text-muted">Random Etymology</h3>
+			</div>
+		<div class="jumbotron">
+			<h1>{{ word }}</h1>
+			<p class="lead">{{ et }}</p>
+			<p><a class="btn btn-lg btn=success" href="https://en.wiktionary.org/wiki/{{ word }}" role="button">Wiktionary</a></p>
+			<p><a class="btn btn-lg btn=success" href="https://www.etymonline.com/word/{{ word }}" role="button">Etymonline</a></p>
+		</div>
+		<div class="row ">
+	        {{ extract }}
+	 	</div>
+	 	<footer class="footer">
+        <p><a href="https://twitter.com/livfreeorcry">@livfreeorcry</a></p>
+      </footer>
+ 	</div>
 </body>
 </html>
