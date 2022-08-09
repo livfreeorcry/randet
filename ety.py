@@ -1,8 +1,6 @@
 import os
-import re
-from random import randint
-from json import loads
 from urllib import request
+import json
 import flask
 
 app = flask.Flask(__name__)
