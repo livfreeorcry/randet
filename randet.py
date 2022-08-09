@@ -10,4 +10,4 @@ app = flask.Flask(__name__)
 def randet():
 	blob = request.urlopen("https://random-word-api.herokuapp.com/word").read()
 	word = json.loads(blob)[0]
-	return(str(ety.origins(word, recursive=True)))
+	return("<h2>" + word + ":</h2><br>" + str(ety.origins(word, recursive=True)))
