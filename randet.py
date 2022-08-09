@@ -40,3 +40,19 @@ def randet():
 			count += 1
 	return("<h3>Tried ten words, none had an etymology listed. Please try again.</h3")
 
+@app.route('/test')
+def test
+	count = 0
+	while count < 10:
+		blob = request.urlopen("https://random-word-api.herokuapp.com/word").read()
+		word = json.loads(blob)[0]
+		et = ety.origins(word, recursive=True)
+		extract = extract(word)
+		if len(et) > 0:
+			try:
+				return render_template("template.html", word=word, et=str(et), extract=extract)
+			except:
+				return "Template Error"
+		else:
+			count += 1
+	return("<h3>Tried ten words, none had an etymology listed. Please try again.</h3")
