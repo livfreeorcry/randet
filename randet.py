@@ -31,7 +31,7 @@ def wikiExtract(word='test'):
 def randet():
 	count = 0
 	while count < 25:
-		word = "hale"
+		word = randWord()
 		et = ety.origins(word, recursive=True)
 		if len(et) > 0:
 			return render_template("template.html", word=word, et=str(et), extract="")
