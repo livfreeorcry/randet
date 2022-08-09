@@ -8,7 +8,7 @@
 	<title>Random Etymology Lookup</title>
 
 	<meta name="author" content="livfreeorcry">
-	<!-- boostrap css -->
+	<!-- boostrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
@@ -29,7 +29,7 @@
 		<a class="btn btn-lg btn=success" href="https://www.etymonline.com/word/{{ word }}" role="button">Etymonline</a></p>
 	</div>
 	<div class="row ">
-        {{ extract }}
+        {{ extract|safe }}
  	</div>
 	 	<footer class="footer">
 	    <p><a href="https://twitter.com/livfreeorcry">@livfreeorcry</a></p>
