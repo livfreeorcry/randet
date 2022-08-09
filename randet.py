@@ -6,9 +6,6 @@ import ety
 
 app = Flask(__name__)
 
-wiktionary = "https://en.wiktionary.org/wiki/"
-etymonline = "https://www.etymonline.com/word/"
-
 # Wiktionary Extract Pull
 
 def randWord():
@@ -16,11 +13,9 @@ def randWord():
 	word = json.loads(str(request))[0]
 	return word
 
-def wikiExtract(word, depth=10):
+def wikiExtract(word):
 	try:
-		url= "https://en.wiktionary.org/w/api.php?action=query&prop=extracts&exsentences={depth}&format=json&titles={word}".format(
-			word=word,
-			depth=depth)
+		url= "https://en.wiktionary.org/w/api.php?action=query&prop=extracts&exchars=1200&format=json&titles={}".format( word )
 		request = requests.get(url).text
 		pages = json.loads(str(request))['query']['pages']
 		for page in pages:
