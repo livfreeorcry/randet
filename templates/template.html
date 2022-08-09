@@ -2,31 +2,42 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<title>Random Etymology Lookup</title>
+
+	<!-- boostrap css -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- bootstrap theme -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+	<!-- boostrap js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
-		<div class="header clearfix">
-			<nav>
-				<ul class="nav nav-pills pull-right">
-				<li role="presentation" class="active"><a href="javascript:window.location.reload(true)">Reroll</a></li>
-				</ul>
-			</nav>
-			<h3 class="text-muted">Random Etymology</h3>
-			</div>
-		<div class="jumbotron">
-			<h1>{{ word }}</h1>
-			<p class="lead">{{ et }}</p>
-			<p><a class="btn btn-lg btn=success" href="https://en.wiktionary.org/wiki/{{ word }}" role="button">Wiktionary</a></p>
-			<p><a class="btn btn-lg btn=success" href="https://www.etymonline.com/word/{{ word }}" role="button">Etymonline</a></p>
-		</div>
-		<div class="row ">
-	        {{ extract }}
-	 	</div>
+	<div class="header clearfix">
+		<nav>
+			<ul class="nav nav-pills pull-right">
+			<li role="presentation" class="active"><a href="javascript:window.location.reload(true)">Reroll</a></li>
+			</ul>
+		</nav>
+		<h3 class="text-muted">Random Etymology</h3>
+	</div>
+	<div class="jumbotron">
+		<h1>{{ word }}</h1>
+		<p class="lead">{{ et }}</p>
+		<p><a class="btn btn-lg btn=success" href="https://en.wiktionary.org/wiki/{{ word }}" role="button">Wiktionary</a>  
+		<a class="btn btn-lg btn=success" href="https://www.etymonline.com/word/{{ word }}" role="button">Etymonline</a></p>
+	</div>
+	<div class="row ">
+        {{ extract }}
+ 	</div>
 	 	<footer class="footer">
-        <p><a href="https://twitter.com/livfreeorcry">@livfreeorcry</a></p>
-      </footer>
+	    <p><a href="https://twitter.com/livfreeorcry">@livfreeorcry</a></p>
+		</footer>
  	</div>
 </body>
 </html>
