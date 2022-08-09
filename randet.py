@@ -30,26 +30,27 @@ def wikiExtract(word='test'):
 @app.route('/')
 def randet():
 	count = 0
-	while count < 10:
-		word = randWord()
+	while count < 25:
+		word = "hale"
 		et = ety.origins(word, recursive=True)
 		if len(et) > 0:
-			#return render_template("template.html", word=word, et=str(et), extract=extract)
-			return("<h2>" + word + ":</h2><p>" + str(et) + 
-				"</p><p>Wiktionary: <a href=\"" + wiktionary + word + "\">" + word + "</a>" +
-				"</p><p>Etymonline: <a href=\"" + etymonline + word + "\">" + word + "</a>")
+			return render_template("template.html", word=word, et=str(et), extract="")
 		else:
 			count += 1
-	return("<h3>Tried ten words, none had an etymology listed. Please try again.</h3")
+	return(render_template( "template.html", 
+		word="Lookup Failed.", 
+		et="Tried twentyfive words, none had an etymology in the database. Halting to reduce spamming the API. Please try again in a few seconds.", 
+		extract="")
+	)
 
 @app.route('/test')
 def test():
 	count = 0
 	while count < 10:
-		word = randWord()
-		et = ety.origins(word, recursive=True)
+		word = "test"
+		et = "Testing the wiktionary lookup."
 		if len(et) > 0:
 			return render_template("template.html", word=word, et=str(et), extract=wikiExtract(word))
 		else:
 			count += 1
-	return("<h3>Tried ten words, none had an etymology listed. Please try again.</h3")
+	return("Something Very Bad Happened Here.")
