@@ -18,14 +18,14 @@ def randWord():
 
 def wikiExtract(word='test'):
 	try:
-		url= "https://en.wiktionary.org/w/api.php?action=query&prop=extracts&format=json&titles="
+		url= "https://en.wiktionary.org/w/api.php?action=query&prop=extracts&exsentences=10&format=json&titles="
 		request = requests.get(url+word).text
-		pages = json.loads(str(request)['query']['pages'])
+		pages = json.loads(str(request))['query']['pages']
 		for page in pages:
 			return(pages[page]['extract'])
 	except Exception as e:
-		print(e)
-		return "<p>No Wiktionary Extract Available</p>"
+		print("[EXCEPT] wiki extraction: " + e)
+		return "No Wiktionary Extract Available"
 
 @app.route('/')
 def randet():
@@ -48,9 +48,8 @@ def test():
 	while count < 10:
 		word = randWord()
 		et = ety.origins(word, recursive=True)
-		extract = wikiExtract(word)
 		if len(et) > 0:
-			return render_template("template.html", word=word, et=str(et), extract=extract)
+			return render_template("template.html", word=word, et=str(et), extract=wikiExtract(word))
 		else:
 			count += 1
 	return("<h3>Tried ten words, none had an etymology listed. Please try again.</h3")
