@@ -26,7 +26,8 @@ def wikiExtract(word, depth=10):
 		for page in pages:
 			return(pages[page]['extract'])
 	except Exception as e:
-		print("[EXCEPT] wiki extraction: " + e)
+		print("[EXCEPT] wiki extraction:")
+		print(e)
 		return "No Wiktionary Extract Available"
 
 @app.route('/')
@@ -36,7 +37,7 @@ def randet():
 		word = randWord()
 		et = ety.origins(word, recursive=True)
 		if len(et) > 0:
-			extract = wikiExtract(word, depth)
+			extract = wikiExtract(word)
 			return render_template("template.html", word=word, et=str(et), extract=extract)
 		else:
 			count += 1
