@@ -49,10 +49,7 @@ def test():
 		et = ety.origins(word, recursive=True)
 		extract = wikiExtract(word)
 		if len(et) > 0:
-			try:
-				return render_template("template.html", word=word, et=str(et), extract=extract)
-			except:
-				return "Template Error"
+			return render_template("template.html", word=word, et=str(et), extract=extract)
 		else:
 			count += 1
 	return("<h3>Tried ten words, none had an etymology listed. Please try again.</h3")
