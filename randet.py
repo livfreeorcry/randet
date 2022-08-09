@@ -1,7 +1,7 @@
 import os
 import requests
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import ety
 
 app = Flask(__name__)
@@ -16,10 +16,12 @@ def randWord():
 	word = json.loads(str(request))[0]
 	return word
 
-def wikiExtract(word='test'):
+def wikiExtract(word, depth=10):
 	try:
-		url= "https://en.wiktionary.org/w/api.php?action=query&prop=extracts&exsentences=10&format=json&titles="
-		request = requests.get(url+word).text
+		url= "https://en.wiktionary.org/w/api.php?action=query&prop=extracts&exsentences={depth}&format=json&titles={word}".format(
+			word=word,
+			depth=depth)
+		request = requests.get(url).text
 		pages = json.loads(str(request))['query']['pages']
 		for page in pages:
 			return(pages[page]['extract'])
@@ -45,6 +47,7 @@ def randet():
 
 @app.route('/<word>')
 def specificLookup():
+	depth = request.values.get('depth') if request.values.has_key('depth') else 10
 	et = ety.origins(word, recursive=True)
-	extract = wikiExtract(word)
+	extract = wikiExtract(word, depth)
 	return render_template("template.html", word=word, et=str(et), extract=extract)
